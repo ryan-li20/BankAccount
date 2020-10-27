@@ -4,10 +4,10 @@ public class BankAccount{
   private int accountID;
   private String password;
 
-  public BankAccount(int accountId, String password){
+  public BankAccount(int accountId, String passwor){
     balance = 0;
     accountID = accountId;
-    password = password;
+    password = passwor;
   }
 
   public double getBalance(int acccountID){
@@ -19,9 +19,9 @@ public class BankAccount{
   }
 
   public String toString(){
-    String account = "" + accountID;
+    String account = "" + accountID + "";
     String bal = "" + balance;
-    return account + "\t" + balance;
+    return account + "\\t" + balance;
   }
 
   public void setPassword(String newPass){
@@ -46,6 +46,10 @@ public class BankAccount{
       return false;
     }
     return true;
+  }
+
+  public String getPassword(){
+    return password;
   }
 
 }
