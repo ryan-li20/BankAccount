@@ -10,7 +10,7 @@ public class BankAccount{
     password = passwor;
   }
 
-  public double getBalance(int acccountID){
+  public double getBalance(){
     return balance;
   }
 
@@ -19,9 +19,9 @@ public class BankAccount{
   }
 
   public String toString(){
-    String account = "" + accountID + "";
+    String account = "" + accountID;
     String bal = "" + balance;
-    return account + "\\t" + balance;
+    return account + "\t" + balance;
   }
 
   public void setPassword(String newPass){
@@ -29,7 +29,7 @@ public class BankAccount{
   }
 
   public boolean deposit(double amount){
-    if(amount > 0){
+    if(amount >= 0){
       balance += amount;
     }
     else{
@@ -39,7 +39,7 @@ public class BankAccount{
   }
 
   public boolean withdraw(double amount){
-    if(amount > 0 && amount < balance){
+    if(amount >= 0 && amount <= balance){
       balance -= amount;
     }
     else{
