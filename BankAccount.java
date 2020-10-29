@@ -19,9 +19,9 @@ public class BankAccount{
   }
 
   public String toString(){
-    String account = "" + accountID;
+    String account = "#" + accountID;
     String bal = "" + balance;
-    return account + "\t" + balance;
+    return account + "\t" + "$" + balance;
   }
 
   public void setPassword(String newPass){
@@ -50,6 +50,23 @@ public class BankAccount{
 
   public String getPassword(){
     return password;
+  }
+
+  private boolean authenticate(String password){
+    return this.password.equals(password);
+  }
+  public boolean transferTo(BankAccount other, double amount, String password){
+    if(authenticate(password)){
+      if(this.withdraw(amount)){
+        if(other.deposit(amount)){
+          return true;
+        }
+        else{
+          return (false);
+        }
+      }
+    }
+    return false;
   }
 
 }
